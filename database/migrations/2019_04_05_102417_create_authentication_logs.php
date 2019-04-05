@@ -14,12 +14,10 @@ class CreateAuthenticationLogs extends Migration
     public function up()
     {
         Schema::create('authentication_logs', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->uuid('user_id');
+            $table->bigIncrements('id');
             $table->ipAddress('ip_address');
             $table->timestamps();
-            $table->primary('id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('user_id')->foreign();
         });
     }
 
