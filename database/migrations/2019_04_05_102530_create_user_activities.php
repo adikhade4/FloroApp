@@ -18,7 +18,7 @@ class CreateUserActivities extends Migration
             $table->string('entity_type')->comment('polymorphic relations (models, i.e. users table)');
             $table->uuid('entity_id')->comment('entity model reference id.');
             $table->string('column_name')->comment('field name which is modified.');
-            $table->text('old_value');
+            $table->text('old_valusfdgsfdgfdge');
             $table->text('modified_value');
             $table->uuid('modified_by')->comment('reference to user model');
             $table->timestamps();
