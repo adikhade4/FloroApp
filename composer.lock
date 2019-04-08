@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36f7f1b840cf909eb54df9b28bf96227",
+    "content-hash": "2da5cf3e75023134436e8735d1aa3d40",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -941,6 +941,199 @@
                 "php"
             ],
             "time": "2019-02-16T20:54:15+00:00"
+        },
+        {
+            "name": "okipa/laravel-bootstrap-table-list",
+            "version": "2.1.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Okipa/laravel-bootstrap-table-list.git",
+                "reference": "4701b0e738b4f047a5003033f9998d9585b42c5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Okipa/laravel-bootstrap-table-list/zipball/4701b0e738b4f047a5003033f9998d9585b42c5d",
+                "reference": "4701b0e738b4f047a5003033f9998d9585b42c5d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "okipa/laravel-html-helper": "^1.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.2",
+                "orchestra/testbench": "^3.6",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Okipa\\LaravelBootstrapTableList\\TableListServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Okipa\\LaravelBootstrapTableList\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arthur LORENT",
+                    "email": "arthur.lorent@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Bootstrap table list generator for Laravel.",
+            "homepage": "https://github.com/Okipa/laravel-bootstrap-table-list",
+            "keywords": [
+                "bootstrap",
+                "entities",
+                "generate",
+                "generation",
+                "generator",
+                "html",
+                "laravel",
+                "list",
+                "okipa",
+                "package",
+                "php",
+                "table"
+            ],
+            "abandoned": "https://github.com/Okipa/laravel-table",
+            "time": "2019-02-12T15:43:28+00:00"
+        },
+        {
+            "name": "okipa/laravel-html-helper",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Okipa/laravel-html-helper.git",
+                "reference": "62def79c2421dd4d39600a5c77f08837d3b15da5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Okipa/laravel-html-helper/zipball/62def79c2421dd4d39600a5c77f08837d3b15da5",
+                "reference": "62def79c2421dd4d39600a5c77f08837d3b15da5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.6",
+                "phpmd/phpmd": "^2.6",
+                "squizlabs/php_codesniffer": "^3.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Okipa\\LaravelHtmlHelper\\": "src/"
+                },
+                "files": [
+                    "app/Helpers/HtmlHelper.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arthur LORENT",
+                    "email": "arthur.lorent@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Some usefull methods to generate clean HTML with Laravel.",
+            "homepage": "https://github.com/Okipa/laravel-html-helper",
+            "keywords": [
+                "generate",
+                "generation",
+                "generator",
+                "helper",
+                "html",
+                "laravel",
+                "okipa",
+                "package",
+                "php"
+            ],
+            "time": "2019-02-07T15:58:55+00:00"
+        },
+        {
+            "name": "okipa/laravel-table",
+            "version": "1.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Okipa/laravel-table.git",
+                "reference": "9d6b31c0120db106737da83efa47a3ce91a69878"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Okipa/laravel-table/zipball/9d6b31c0120db106737da83efa47a3ce91a69878",
+                "reference": "9d6b31c0120db106737da83efa47a3ce91a69878",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.2",
+                "okipa/laravel-html-helper": "^1.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.2",
+                "nunomaduro/larastan": "^0.3.15",
+                "orchestra/testbench": "^3.6",
+                "phpmd/phpmd": "^2.6",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Okipa\\LaravelTable\\LaravelTableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Okipa\\LaravelTable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arthur LORENT",
+                    "email": "arthur.lorent@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Generate tables with Laravel.",
+            "homepage": "https://github.com/Okipa/laravel-table",
+            "keywords": [
+                "Lists",
+                "generate",
+                "generation",
+                "generator",
+                "html",
+                "laravel",
+                "list",
+                "okipa",
+                "package",
+                "php",
+                "table",
+                "tables"
+            ],
+            "time": "2019-02-21T18:03:20+00:00"
         },
         {
             "name": "opis/closure",
