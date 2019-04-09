@@ -19,7 +19,8 @@ class UserActivity extends Model
      */
     protected $fillable = [
         'id', 
-        'user_id',
+        'entity_id',
+        'entity_id',
         'old_value',
         'new_value',
         'field_name',

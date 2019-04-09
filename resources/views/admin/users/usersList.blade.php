@@ -13,7 +13,7 @@
                             <a class="btn btn-primary float-sm-right" style="margin-left: 10px;" href="{{ route('users.create') }}" >
                                 Create User Account
                             </a>
-                            <a class="btn btn-primary float-sm-right"  >
+                             <a class="btn btn-primary float-sm-right" href="{{ route('usersExport') }}" >
                                 Export Users
                             </a>
                         </div>

@@ -95,6 +95,10 @@ class UserController extends Controller
             return redirect('/users/edit')->with('errorMessage',
                 config('frontendMessages.EXCEPTION_MESSAGES.UPDATE_USER_MESSAGE'));
         }
+
+
+
+        
         return redirect('/users')->with('successMessage', __('frontendMessages.SUCCESS_MESSAGES.USER_UPDATED'));
     }
 

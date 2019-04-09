@@ -1,4 +1,4 @@
-@extends('layouts.app')
+
 <thead>
     {{-- rows number / search --}}
     @if($table->rowsNumberSelectionActivation || ! $table->searchableColumns->isEmpty())

@@ -109,7 +109,8 @@ class UserService
         if ($id == Auth::id()) {
             return false;
         }
-        return $this->userRepository->update($id, ['is_active' => self::IN_ACTIVE]);
+        $this->userRepository->update($id, ['is_active' => self::IN_ACTIVE]);
+        return  $this->userRepository->delete($id);
     }
     
     public function updateUser($request, string $userId)
@@ -128,5 +129,36 @@ class UserService
         return $this->userRepository->update($userId, $inputData);
     }
     
+    public function trackUserActivity($modifiedBy, $class, $trackableFields, $dataBeforeUpdated, $dataAfterUpdated) : bool
+    {
+        $dataAfterUpdated = $dataAfterUpdated->toArray();
+        $dataBeforeUpdated = $dataBeforeUpdated->toArray();
+        $updatedData = array_diff($dataAfterUpdated, $dataBeforeUpdated);
+        if (empty($updatedData)) {
+            return true;
+        }
+        $trackableData = array_only($updatedData, $trackableFields);
+        if (empty($trackableData)) {
+            return true;
+        }
+        $trackableDataToInsert = [];
+        foreach ($trackableFields as $field) {
+        if (isset($trackableData[$field]) && !empty($trackableData[$field])) {
+        $information['entity_type'] = $class;
+        $information['entity_id'] = $dataBeforeUpdated['id'];
+        $information['field_name'] = $field;
+        $information['old_value'] = $dataBeforeUpdated[$field];
+        $information['new_value'] = $dataAfterUpdated[$field];
+        $information['modified_by'] = $modifiedBy;
+        $information['created_at'] = Carbon::now()->toDateTimeString();
+        $information['updated_at'] = Carbon::now()->toDateTimeString();
+        
+        $trackableDataToInsert[] = $information;
+        }
+        }
+        
+        $this->userActivityRepository->insertMultipleRows($trackableDataToInsert);  
+        return true;
+    }
   
 }

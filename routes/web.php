@@ -12,13 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/users');
 });
 
 Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('users', 'UserController');
 
-
+    // Routes for user management.
+    Route::resource('users', 'UserController');
+   
+    
+    // Routes for export & download users.
+    Route::get('/export/users', 'ExportUserController@exportUsers')->name('usersExport');
+    Route::get('/download/users', 'ExportUserController@showUsersDownload')->name('showUsersDownload');
+    Route::get('/download/users-file', 'ExportUserController@downloadUsers')->name('usersDownload');
