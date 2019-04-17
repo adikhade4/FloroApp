@@ -104,12 +104,12 @@ class UserService
         return $this->userRepository->find($id);
     }
     
-    public function deleteUser(string $id) : bool
+    public function deleteUser(string $id)
     {
-        if ($id == Auth::id()) {
-            return false;
-        }
-        $this->userRepository->update($id, ['is_active' => self::IN_ACTIVE]);
+        // if ($id == Auth::id()) {
+        //     return false;
+        // }
+       // $this->userRepository->update($id, ['is_active' => self::IN_ACTIVE]);
         return  $this->userRepository->delete($id);
     }
     
@@ -159,6 +159,11 @@ class UserService
         
         $this->userActivityRepository->insertMultipleRows($trackableDataToInsert);  
         return true;
+    }
+
+    public function delete($id)
+    { 
+        return $this->userRepository->delete($id);
     }
   
 }

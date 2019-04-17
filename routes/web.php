@@ -17,14 +17,14 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'UserController@index')->name('home');
 
 
     // Routes for user management.
-    Route::resource('users', 'UserController');
-   
+Route::resource('users', 'UserController')->middleware('auth');
+Route::get('/','UserController@home')->middleware('auth');
     
     // Routes for export & download users.
-    Route::get('/export/users', 'ExportUserController@exportUsers')->name('usersExport');
-    Route::get('/download/users', 'ExportUserController@showUsersDownload')->name('showUsersDownload');
-    Route::get('/download/users-file', 'ExportUserController@downloadUsers')->name('usersDownload');
+Route::get('/export/users', 'ExportUserController@exportUsers')->name('usersExport');
+Route::get('/download/users', 'ExportUserController@showUsersDownload')->name('showUsersDownload');
+Route::get('/download/users-file', 'ExportUserController@downloadUsers')->name('usersDownload');

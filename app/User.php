@@ -7,11 +7,13 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
+    use HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -76,4 +78,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(AuthenticationLog::class)->orderBy('created_at', 'desc')->limit(1);
     }
+
+   
 }

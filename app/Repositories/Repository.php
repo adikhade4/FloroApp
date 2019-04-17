@@ -65,7 +65,8 @@ class Repository
      * @return boolean
      */
     public function delete($id)
-    {
+    { 
+        
         $currentModel = $this->find($id);
         return $currentModel->delete();
     }

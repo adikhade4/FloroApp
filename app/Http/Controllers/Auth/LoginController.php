@@ -5,6 +5,9 @@ use App\Services\AuthenticationService;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Auth;
+use App\Models\Passport\Token;
+
 class LoginController extends Controller
 {
     
@@ -52,4 +55,6 @@ class LoginController extends Controller
     {
         $this->authenticationService->storeLoginActivityOfUser($request, $user);
     }
+
+   
 }

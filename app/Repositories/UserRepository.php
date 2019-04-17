@@ -3,6 +3,7 @@ namespace App\Repositories;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Okipa\LaravelBootstrapTableList\TableList;
+
 class UserRepository extends Repository
 {
     /**
@@ -40,11 +41,26 @@ class UserRepository extends Repository
             ->setRowsNumber(10)
             ->addQueryInstructions(function ($query){
                 $query->select('users.*');
-                $query->selectRaw('MAX(authentication_logs.created_at) as last_login_at');
-                $query->leftJoin('authentication_logs', 'authentication_logs.user_id', '=', 'users.id');
-                $query->where('users.id', '!=', Auth::id());
-                $query->where('users.is_active', 1);
+                $query->selectRaw('MAX(autheif ($id == Auth::id()) {
+        //     return false;
+        // }ntication_logs.created_at) as last_login_at');
+                $query->leftJoin('authenticaif ($id == Auth::id()) {
+        //     return false;
+        // }tion_logs', 'authentication_logs.user_id', '=', 'users.id');
+                $query->where('users.id', '!if ($id == Auth::id()) {
+        //     return false;
+        // }=', Auth::id());
+                $query->where('users.is_actiif ($id == Auth::id()) {
+        //     return false;
+        // }ve', 1);
                 $query->groupBy('users.id');
             });
     }
+
+    public function delete($id)
+    { 
+       
+        return $this->model->find($id)->delete();
+    }
+    
 }
